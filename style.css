@@ -4,6 +4,8 @@
   --text-color: #333;
   --button-background: #007bff;
   --button-hover: #0056b3;
+  --form-border-color: #ccc;
+  --input-background: #f9f9f9;
 }
 
 [data-theme='dark'] {
@@ -12,17 +14,21 @@
   --text-color: #f0f2f5;
   --button-background: #0056b3;
   --button-hover: #007bff;
+  --form-border-color: #555;
+  --input-background: #3a3a3a;
 }
 
 body {
   font-family: sans-serif;
   display: flex;
+  flex-direction: column; /* Changed to column to stack containers */
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background-color: var(--background-color);
   margin: 0;
   transition: background-color 0.3s ease;
+  padding: 20px; /* Add some padding for better spacing */
 }
 
 .container {
@@ -32,6 +38,7 @@ body {
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
+  margin-bottom: 30px; /* Space between the two containers */
 }
 
 h1 {
@@ -68,8 +75,74 @@ h1 {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: 5px; /* Add margin for spacing between buttons */
 }
 
 #generate-btn:hover, #theme-toggle-btn:hover {
+  background-color: var(--button-hover);
+}
+
+/* Form Styles */
+.form-container {
+  background-color: var(--container-background);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text-color);
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container label {
+  margin-bottom: 8px;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container textarea {
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid var(--form-border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: var(--input-background);
+  color: var(--text-color);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="email"]:focus,
+.form-container textarea:focus {
+  border-color: var(--button-background);
+  outline: none;
+}
+
+.form-container button[type="submit"] {
+  padding: 15px 30px;
+  border: none;
+  background-color: var(--button-background);
+  color: #fff;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center; /* Center the submit button */
+  margin-top: 10px;
+}
+
+.form-container button[type="submit"]:hover {
   background-color: var(--button-hover);
 }
